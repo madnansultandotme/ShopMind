@@ -1,0 +1,18 @@
+\section{Constraints and Assumptions}
+\subsection{Constraints}
+\begin{itemize}
+    \item The system shall comply with applicable data protection laws and tax invoice regulations.
+    \item The system shall use the OpenAI API for LLM processing over HTTPS.
+    \item The system shall restrict RAG retrieval to data permitted by user role.
+    \item The system shall store prompts and model responses for audit and traceability.
+    \item The system shall mask sensitive fields in prompts when not required.
+    \item The system shall record inventory price changes with timestamps and user IDs.
+\end{itemize}
+
+\subsection{Assumptions}
+\begin{itemize}
+    \item Users enter accurate data for inventory and sales.
+    \item A stable internet connection is available for OpenAI API access.
+    \item Email services are available when scheduled reports are enabled.
+    \item The database is backed up by the hosting environment or system admin.
+\end{itemize}

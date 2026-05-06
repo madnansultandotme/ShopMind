@@ -1,0 +1,48 @@
+\section{Non-Functional Requirements}
+\subsection{Performance}
+\begin{itemize}
+    \item Standard page loads shall complete within 3 seconds under normal load.
+    \item LLM responses should be returned within 10 seconds for typical queries.
+    \item Report generation for one month of data shall complete within 15 seconds.
+\end{itemize}
+
+\subsection{Security}
+\begin{itemize}
+    \item The system shall require authentication for all non-public endpoints.
+    \item Passwords shall be stored using strong hashing (bcrypt or equivalent).
+    \item The system shall log access to sensitive data.
+    \item The system shall enforce role-based access control for all data queries.
+\end{itemize}
+
+\subsection{Reliability and Availability}
+\begin{itemize}
+    \item The system shall be available 99\% of business hours.
+    \item The system shall back up the database daily.
+    \item The system shall provide recovery procedures for failed transactions.
+\end{itemize}
+
+\subsection{Maintainability}
+\begin{itemize}
+    \item The system shall follow modular architecture to allow feature extension.
+    \item The system shall include API documentation and inline code comments for complex logic.
+    \item The system shall provide configuration via environment variables.
+\end{itemize}
+
+\subsection{Usability}
+\begin{itemize}
+    \item The system shall provide consistent UI labels and error messages.
+    \item The system shall provide help tips for the assistant feature.
+    \item The system shall support keyboard navigation for the POS screen.
+\end{itemize}
+
+\subsection{Scalability}
+\begin{itemize}
+    \item The system shall support at least 20 concurrent POS sessions.
+    \item The system shall handle growth to 100,000 product records without redesign.
+\end{itemize}
+
+\subsection{Data Quality and Explainability}
+\begin{itemize}
+    \item The system shall show data sources used by the assistant response.
+    \item The system shall mark AI responses as advisory, not authoritative.
+\end{itemize}

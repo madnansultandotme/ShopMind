@@ -1,0 +1,190 @@
+\section{Use Cases}
+\subsection{Use Case 1: Add or Update Product}
+\textbf{Goal:} Create a new product or update an existing product in inventory.
+
+\textbf{Actors:} Owner/Manager, System Admin
+
+\textbf{Preconditions:}
+\begin{itemize}
+    \item The user is authenticated.
+    \item The user has inventory edit permission.
+\end{itemize}
+
+\textbf{Trigger:} The user selects ``Add Product'' or ``Edit Product''.
+
+\textbf{Main Flow:}
+\begin{itemize}
+    \item The user enters product name, SKU, category, unit, cost price, selling price, and stock level.
+    \item The system validates required fields and checks SKU uniqueness.
+    \item The user saves the product.
+    \item The system stores the product and refreshes the inventory list.
+    \item The system records the change in the audit log.
+\end{itemize}
+
+\textbf{Alternate Flows:}
+\begin{itemize}
+    \item If the SKU already exists, the system prompts the user to correct the SKU.
+    \item If required fields are missing, the system highlights errors and blocks save.
+\end{itemize}
+
+\textbf{Postconditions:}
+\begin{itemize}
+    \item The product appears in inventory with updated values.
+\end{itemize}
+
+\subsection{Use Case 2: Process Sale at POS}
+\textbf{Goal:} Complete a sale and issue an invoice.
+
+\textbf{Actors:} Cashier
+
+\textbf{Preconditions:}
+\begin{itemize}
+    \item The cashier is authenticated.
+    \item Products exist in inventory.
+\end{itemize}
+
+\textbf{Trigger:} The cashier starts a new sale.
+
+\textbf{Main Flow:}
+\begin{itemize}
+    \item The cashier scans or selects products and quantities.
+    \item The system calculates subtotal, taxes, discounts, and final total.
+    \item The cashier selects a payment method and confirms payment.
+    \item The system creates an invoice and updates stock quantities.
+    \item The system prints or displays the invoice.
+\end{itemize}
+
+\textbf{Alternate Flows:}
+\begin{itemize}
+    \item If payment fails, the system cancels the invoice creation.
+    \item If stock is insufficient, the system warns the cashier and blocks checkout.
+\end{itemize}
+
+\textbf{Postconditions:}
+\begin{itemize}
+    \item The invoice is stored with a unique invoice number.
+    \item Inventory quantities are reduced.
+\end{itemize}
+
+\subsection{Use Case 3: Generate Sales Report}
+\textbf{Goal:} Create a sales report for a selected period.
+
+\textbf{Actors:} Owner/Manager, Analyst
+
+\textbf{Preconditions:}
+\begin{itemize}
+    \item The user is authenticated.
+    \item Sales data exists for the selected period.
+\end{itemize}
+
+\textbf{Trigger:} The user selects ``Generate Report'' and chooses a date range.
+
+\textbf{Main Flow:}
+\begin{itemize}
+    \item The system retrieves sales data for the selected range.
+    \item The system calculates totals, margins, and top products.
+    \item The report is displayed on screen.
+    \item The user exports the report as PDF or CSV.
+\end{itemize}
+
+\textbf{Alternate Flows:}
+\begin{itemize}
+    \item If no data exists for the period, the system displays an empty report with a notice.
+\end{itemize}
+
+\textbf{Postconditions:}
+\begin{itemize}
+    \item The report is stored or downloaded by the user.
+\end{itemize}
+
+\subsection{Use Case 4: Ask LLM Query}
+\textbf{Goal:} Ask a natural-language question and receive a data-backed response.
+
+\textbf{Actors:} Owner/Manager, Analyst
+
+\textbf{Preconditions:}
+\begin{itemize}
+    \item The user is authenticated.
+    \item The user has permission to view requested data.
+\end{itemize}
+
+\textbf{Trigger:} The user submits a question in the assistant chat.
+
+\textbf{Main Flow:}
+\begin{itemize}
+    \item The system retrieves relevant data using RAG.
+    \item The system sends the prompt and retrieved data to the OpenAI API.
+    \item The system receives an answer and maps it to the data context.
+    \item The system displays the response with cited sources.
+    \item The system stores the query and response in the audit log.
+\end{itemize}
+
+\textbf{Alternate Flows:}
+\begin{itemize}
+    \item If the query is ambiguous, the assistant asks a clarification question.
+    \item If access is not permitted, the system denies the request and explains why.
+\end{itemize}
+
+\textbf{Postconditions:}
+\begin{itemize}
+    \item The response is available to the user and recorded for traceability.
+\end{itemize}
+
+\subsection{Use Case 5: Schedule Insight Report}
+\textbf{Goal:} Schedule automated insight reports.
+
+\textbf{Actors:} Owner/Manager
+
+\textbf{Preconditions:}
+\begin{itemize}
+    \item The user is authenticated.
+    \item Email settings are configured.
+\end{itemize}
+
+\textbf{Trigger:} The user enables scheduled reports in settings.
+
+\textbf{Main Flow:}
+\begin{itemize}
+    \item The user selects report type, recipients, and schedule.
+    \item The system validates the schedule and saves the configuration.
+    \item The system generates insights and sends reports at the scheduled time.
+\end{itemize}
+
+\textbf{Alternate Flows:}
+\begin{itemize}
+    \item If email settings are invalid, the system blocks scheduling and shows errors.
+\end{itemize}
+
+\textbf{Postconditions:}
+\begin{itemize}
+    \item Scheduled report is active and visible in settings.
+\end{itemize}
+
+\subsection{Use Case 6: Manage Users and Roles}
+\textbf{Goal:} Create, update, or deactivate user accounts.
+
+\textbf{Actors:} System Admin
+
+\textbf{Preconditions:}
+\begin{itemize}
+    \item The admin is authenticated.
+\end{itemize}
+
+\textbf{Trigger:} The admin opens user management.
+
+\textbf{Main Flow:}
+\begin{itemize}
+    \item The admin creates a user and assigns a role.
+    \item The system sends a temporary password or reset link.
+    \item The admin deactivates or resets users as needed.
+\end{itemize}
+
+\textbf{Alternate Flows:}
+\begin{itemize}
+    \item If the email address already exists, the system asks to update the existing user.
+\end{itemize}
+
+\textbf{Postconditions:}
+\begin{itemize}
+    \item The user account is created or updated and recorded in audit logs.
+\end{itemize}

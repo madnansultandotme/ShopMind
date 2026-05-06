@@ -1,0 +1,52 @@
+\section{Functional Requirements}
+\subsection{Inventory Management}
+\begin{itemize}
+    \item The system shall allow users to add, edit, and deactivate products.
+    \item The system shall track stock quantity, reorder level, cost price, and selling price.
+    \item The system shall support batch import of products using CSV.
+    \item The system shall generate low-stock alerts and show them on the dashboard.
+    \item The system shall support product categories, brands, and units of measure.
+\end{itemize}
+
+\subsection{Billing and POS}
+\begin{itemize}
+    \item The system shall create sales invoices with unique invoice numbers.
+    \item The system shall support discounts and taxes per item or invoice.
+    \item The system shall update stock quantities after successful billing.
+    \item The system shall support multiple payment methods (cash, card, UPI).
+    \item The system shall support invoice cancellation with audit logging.
+\end{itemize}
+
+\subsection{Sales Tracking and Reporting}
+\begin{itemize}
+    \item The system shall record each transaction with timestamp, items, totals, and cashier.
+    \item The system shall generate daily, weekly, and monthly sales reports.
+    \item The system shall allow report export in PDF and CSV formats.
+    \item The system shall support filtering by product, category, and date range.
+\end{itemize}
+
+\subsection{LLM Assistant and Natural Language Queries}
+\begin{itemize}
+    \item The system shall provide a chat interface for natural-language queries.
+    \item The system shall translate user queries into structured queries (e.g., SQL).
+    \item The system shall use RAG to retrieve relevant data before generating answers.
+    \item The system shall display the data source or evidence used in answers.
+    \item The system shall handle ambiguous queries by requesting clarification.
+    \item The system shall block responses to unauthorized data based on user role.
+\end{itemize}
+
+\subsection{Automated Insights}
+\begin{itemize}
+    \item The system shall generate insights such as top-selling products and slow movers.
+    \item The system shall recommend restocking for low-velocity items based on trends.
+    \item The system shall detect unusual sales drops or spikes.
+    \item The system shall allow scheduling of insight reports by email.
+\end{itemize}
+
+\subsection{User and Role Management}
+\begin{itemize}
+    \item The system shall support role-based access control.
+    \item The system shall allow administrators to create, deactivate, and reset users.
+    \item The system shall log user actions for auditing.
+    \item The system shall enforce password complexity rules.
+\end{itemize}

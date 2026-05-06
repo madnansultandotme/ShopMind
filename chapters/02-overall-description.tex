@@ -1,0 +1,47 @@
+\section{Overall Description}
+\subsection{Product Perspective}
+The system is a new product composed of a web frontend, a backend API layer, a PostgreSQL database, and an AI layer that uses the OpenAI API with Retrieval-Augmented Generation (RAG). The system is designed as a modular service-oriented architecture with clear separation between presentation, business logic, data storage, and AI services.
+
+\subsection{Product Functions}
+High-level functions include:
+\begin{itemize}
+    \item Manage products, categories, units, suppliers, and stock levels.
+    \item Create and manage invoices and POS transactions.
+    \item Track sales and generate operational and analytical reports.
+    \item Provide a conversational assistant for data queries and insights.
+    \item Generate automated insights and recommendations.
+\end{itemize}
+
+\subsection{User Classes and Characteristics}
+\begin{itemize}
+    \item Owner/Manager: Full access to inventory, billing, reporting, and AI insights.
+    \item Cashier: Access to POS and invoice generation; limited reporting.
+    \item Analyst: Access to reporting and insights; no inventory editing.
+    \item System Admin: Configuration, user management, and audit review.
+\end{itemize}
+
+\subsection{Operating Environment}
+\begin{itemize}
+    \item Web client: modern browsers (Chrome, Edge, Firefox).
+    \item Server: Node.js/Express runtime on Linux or Windows.
+    \item Database: PostgreSQL 13+.
+    \item AI layer: OpenAI API with HTTPS access.
+\end{itemize}
+
+\subsection{Design and Implementation Constraints}
+\begin{itemize}
+    \item The system shall comply with data privacy regulations applicable to the deployment region.
+    \item Internet connectivity is required for OpenAI API access.
+    \item Responses must be derived from authorized data using RAG retrieval rules.
+    \item The system shall be deployable on commodity hardware.
+\end{itemize}
+
+\subsection{User Documentation}
+The project will provide a user guide, quick-start handbook, and admin configuration guide.
+
+\subsection{Assumptions and Dependencies}
+\begin{itemize}
+    \item Accurate data entry by staff for inventory and sales.
+    \item Availability of OpenAI API keys and stable network connectivity.
+    \item PostgreSQL database is accessible to the backend.
+\end{itemize}
