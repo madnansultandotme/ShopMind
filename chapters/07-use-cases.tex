@@ -1,4 +1,37 @@
 \section{Use Cases}
+\subsection{GUI Use Case Diagram}
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}[
+        node distance=8mm and 12mm,
+        actor/.style={draw, rounded corners, align=center, minimum width=20mm, minimum height=7mm},
+        usecase/.style={draw, ellipse, align=center, minimum width=28mm, minimum height=7mm},
+        link/.style={-Latex}
+    ]
+        \node[actor] (manager) {Owner/\newline Manager};
+        \node[actor, below=of manager] (cashier) {Cashier};
+        \node[actor, below=of cashier] (analyst) {Analyst};
+        \node[actor, below=of analyst] (admin) {System\newline Admin};
+
+        \node[usecase, right=28mm of manager] (inventory) {Manage\newline Inventory};
+        \node[usecase, below=of inventory] (billing) {Process\newline Sale (POS)};
+        \node[usecase, below=of billing] (reports) {Generate\newline Reports};
+        \node[usecase, below=of reports] (assistant) {Ask LLM\newline Query};
+        \node[usecase, below=of assistant] (schedule) {Schedule\newline Insights};
+        \node[usecase, below=of schedule] (users) {Manage\newline Users/Roles};
+
+        \draw[link] (manager) -- (inventory);
+        \draw[link] (manager) -- (reports);
+        \draw[link] (manager) -- (assistant);
+        \draw[link] (manager) -- (schedule);
+        \draw[link] (cashier) -- (billing);
+        \draw[link] (analyst) -- (reports);
+        \draw[link] (analyst) -- (assistant);
+        \draw[link] (admin) -- (users);
+        \draw[link] (admin) -- (inventory);
+    \end{tikzpicture}
+    \caption{GUI use case diagram for the retail management system.}
+\end{figure}
 \subsection{Use Case 1: Add or Update Product}
 \textbf{Goal:} Create a new product or update an existing product in inventory.
 
